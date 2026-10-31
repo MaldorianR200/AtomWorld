@@ -1,0 +1,17 @@
+{
+  "name": "atom-world",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Интерактивная образовательная игра об атомной отрасли для школьников 8–9 классов.",
+  "author": "Станислав Зеленков (https://github.com/MaldorianR200)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.1.12"
+  }
+}
+
