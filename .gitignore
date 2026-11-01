@@ -6,4 +6,6 @@ dist/
 Thumbs.db
 .idea/
 .vscode/
+.claude
+
 
