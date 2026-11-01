@@ -1,5 +1,5 @@
 import { hazardTypes, shuffled, wasteItems } from '../data/gameData.js';
-import { completionMarkup, enableDragToTargets, signal, setFeedback } from '../modules/stationUi.js';
+import { completionMarkup, enableDragToTargets, revealCompletion, signal, setFeedback } from '../modules/stationUi.js';
 
 export function renderWasteStation(root, onComplete) {
   let selectedId = null;
@@ -66,6 +66,7 @@ export function renderWasteStation(root, onComplete) {
         window.setTimeout(() => {
           root.innerHTML = completionMarkup('Станция пройдена', 'Территория безопасна!', 'Разные типы опасных отходов нельзя смешивать: для каждого предусмотрены свои сбор, хранение и переработка.');
           root.querySelector('[data-next-station]').addEventListener('click', onComplete);
+          revealCompletion(root);
         }, 500);
       }, 300);
     }

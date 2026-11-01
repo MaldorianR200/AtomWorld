@@ -82,7 +82,7 @@ export const wasteItems = [
   { id: 'oil', title: 'Промасленная ветошь', icon: '♨', type: 'flammable' },
   { id: 'fuel', title: 'Остатки топлива', icon: '▰', type: 'flammable' },
   { id: 'gloves', title: 'Медицинские перчатки', icon: '✋', type: 'biological' },
-  { id: 'culture', title: 'Лабораторная культура', icon: '◌', type: 'biological' },
+  { id: 'culture', title: 'Лабораторная посуда', icon: '◌', type: 'biological' },
   { id: 'battery', title: 'Литиевая батарея', icon: '▥', type: 'electrical' },
   { id: 'circuit', title: 'Плата управления', icon: '▦', type: 'electrical' },
 ];
@@ -124,11 +124,11 @@ export const careerQuestions = [
 ];
 
 export const professions = [
+  { id: 'safety', title: 'Инженер по радиационной безопасности', icon: '◉' },
+  { id: 'physicist', title: 'Физик-ядерщик', icon: '⚛' },
+  { id: 'ecologist', title: 'Инженер-эколог', icon: '♧' },
   { id: 'operator', title: 'Оператор АЭС', icon: '⌁' },
   { id: 'engineer', title: 'Инженер-проектировщик', icon: '△' },
-  { id: 'physicist', title: 'Физик-ядерщик', icon: '⚛' },
-  { id: 'safety', title: 'Инженер по радиационной безопасности', icon: '◉' },
-  { id: 'ecologist', title: 'Инженер-эколог', icon: '♧' },
 ];
 
 export function shuffled(items) {

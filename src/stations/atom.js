@@ -1,5 +1,5 @@
 import { particleTypes, shuffled } from '../data/gameData.js';
-import { completionMarkup, enableDragToTargets, signal, setFeedback } from '../modules/stationUi.js';
+import { completionMarkup, enableDragToTargets, revealCompletion, signal, setFeedback } from '../modules/stationUi.js';
 
 const particles = [
   { id: 'p1', type: 'proton' }, { id: 'p2', type: 'proton' },
@@ -143,6 +143,7 @@ export function renderAtomStation(root, onComplete) {
       window.setTimeout(() => {
         root.innerHTML = completionMarkup('Станция пройдена', 'Малыш Атом готов!', 'В ядре гелия находятся два протона и два нейтрона, а вокруг движутся два электрона.');
         root.querySelector('[data-next-station]').addEventListener('click', onComplete);
+        revealCompletion(root);
       }, 550);
     } else {
       signal(root, 'error', `Пока не хватает частиц: в модели ${protons}/2 протонов, ${neutrons}/2 нейтронов и ${electrons}/2 электронов.`);

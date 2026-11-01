@@ -1,5 +1,5 @@
 import { plantParts, shuffled } from '../data/gameData.js';
-import { completionMarkup, signal, setFeedback } from '../modules/stationUi.js';
+import { completionMarkup, revealCompletion, signal, setFeedback } from '../modules/stationUi.js';
 
 function plantIcon(type) {
   const icons = {
@@ -90,6 +90,7 @@ export function renderPlantStation(root, onComplete) {
       window.setTimeout(() => {
         root.innerHTML = completionMarkup('Станция пройдена', 'АЭС запущена!', 'На АЭС энергия деления ядер превращается в тепло, движение турбины, а затем — в электричество.');
         root.querySelector('[data-next-station]').addEventListener('click', onComplete);
+        revealCompletion(root);
       }, 550);
     } else {
       const expected = plantParts[firstWrong];

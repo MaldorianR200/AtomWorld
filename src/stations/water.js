@@ -1,5 +1,5 @@
 import { shuffled, waterSteps } from '../data/gameData.js';
-import { completionMarkup, signal, setFeedback } from '../modules/stationUi.js';
+import { completionMarkup, revealCompletion, signal, setFeedback } from '../modules/stationUi.js';
 
 function initialOrder() {
   let result = shuffled(waterSteps);
@@ -74,6 +74,7 @@ export function renderWaterStation(root, onComplete) {
       window.setTimeout(() => {
         root.innerHTML = completionMarkup('Станция пройдена', 'Вода снова чистая!', 'Многоступенчатая система последовательно удаляет крупный мусор, частицы, растворённые примеси и микроорганизмы.');
         root.querySelector('[data-next-station]').addEventListener('click', onComplete);
+        revealCompletion(root);
       }, 900);
     } else {
       const expected = waterSteps[wrong];

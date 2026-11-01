@@ -1,5 +1,5 @@
 import { careerQuestions, professions } from '../data/gameData.js';
-import { completionMarkup, signal } from '../modules/stationUi.js';
+import { completionMarkup, revealCompletion, signal } from '../modules/stationUi.js';
 
 export function renderCareersStation(root, onComplete) {
   let questionIndex = 0;
@@ -59,6 +59,7 @@ export function renderCareersStation(root, onComplete) {
         root.innerHTML = completionMarkup('Финальная станция пройдена', 'Команда собрана!', 'Оператор, проектировщик, физик, специалист по безопасности и эколог вместе создают безопасные атомные технологии.');
         root.querySelector('[data-next-station]').textContent = 'Получить звание →';
         root.querySelector('[data-next-station]').addEventListener('click', onComplete);
+        revealCompletion(root);
       } else {
         draw();
       }

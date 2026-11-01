@@ -20,7 +20,7 @@ export function signal(root, type, message) {
 
 export function completionMarkup(eyebrow, title, text) {
   return `
-    <section class="station-complete" aria-live="polite">
+    <section class="station-complete" aria-live="polite" tabindex="-1">
       <div class="station-complete__orb"><span>✓</span></div>
       <p class="eyebrow">${eyebrow}</p>
       <h3>${title}</h3>
@@ -30,6 +30,21 @@ export function completionMarkup(eyebrow, title, text) {
       </button>
     </section>
   `;
+}
+
+export function revealCompletion(root) {
+  const completion = root.querySelector('.station-complete');
+  if (!completion) return;
+
+  completion.focus({ preventScroll: true });
+  if (!window.matchMedia('(max-width: 760px)').matches) return;
+
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      const station = root.closest('.station-shell') ?? completion;
+      station.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 }
 
 export function enableDragToTargets(root, selector, onDrop) {
